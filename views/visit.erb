@@ -11,11 +11,11 @@
     <input id="bbb" name="phone" type="text" class="form-control" placeholder="Введите телефон" value="<%= @phone %>">
   </div>
 </br> 
-<select name="value" type="text" class="form-select" aria-label="Default select example">
+<select name="barber" type="text" class="form-select" aria-label="Default select example">
   <option selected>Выберите парикмахера</option>
-  <option>Walter White</option>
-  <option>Jessie Pinkman</option>
-  <option>Gus Fring</option>
+  <option <%= @barber == 'Walter White' ? 'selected' : '' %>>Walter White</option>
+  <option <%= @barber == 'Jessie Pinkman' ? 'selected' : '' %>>Jessie Pinkman</option>
+  <option <%= @barber == 'Gus Fring' ? 'selected' : '' %>>Gus Fring</option>
 </select>
 <div class="mb-3">
     <label>Дата и время</label>
