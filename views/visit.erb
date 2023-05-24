@@ -19,7 +19,7 @@
 </select>
 <div class="mb-3">
     <label>Дата и время</label>
-    <input name="datetime" type="text" class="form-control ccc" placeholder="Введите дату и время" value="<%= @datetime %>">
+    <input id="datetimepicker" name="datetime" type="text" class="form-control ccc" placeholder="Выберите дату и время" value="<%= @datetime %>">
   </div>
  </br> 
 <div class="mb-3">
@@ -55,7 +55,7 @@ $('.ccc').css('background-color', '#fff');
 $(function () {
 
   $('#color').simplecolorpicker();  
-
+  $('#datetimepicker').datetimepicker();
 });
 </script>
 
