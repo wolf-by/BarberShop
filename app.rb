@@ -127,8 +127,8 @@ get '/showusers' do
 
 	#sqlite3 db read
  	db = get_db
- 	
-	@results = db.execute 'select * from Users order by id'
+
+	@results = db.execute 'select * from Users order by id desc'
 
 
   erb :showusers
