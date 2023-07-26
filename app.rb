@@ -5,6 +5,12 @@ require 'sinatra/reloader'
 require 'pony'
 require 'sqlite3'
 
+def get_db
+	db = SQLite3::Database.new 'barbershop.db'
+	db.results_as_hash = true
+	return db
+end
+
 configure do
 	db = SQLite3::Database.new 'barbershop.db'
 	db.execute 'CREATE TABLE IF NOT EXISTS
@@ -118,11 +124,12 @@ post '/contacts' do
 end
 
 get '/showusers' do
-  "Hello World"
-end
 
-def get_db
-	db = SQLite3::Database.new 'barbershop.db'
-	db.results_as_hash = true
-	return db
+	#sqlite3 db read
+ 	db = get_db
+ 	
+	@results = db.execute 'select * from Users order by id'
+
+
+  erb :showusers
 end
