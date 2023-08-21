@@ -11,12 +11,14 @@
     <input id="bbb" name="phone" type="text" class="form-control" placeholder="Введите телефон" value="<%= @phone %>">
   </div>
 </br> 
+
 <select name="barber" type="text" class="form-select" aria-label="Default select example">
   <option selected>Выберите парикмахера</option>
-  <option <%= @barber == 'Walter White' ? 'selected' : '' %>>Walter White</option>
-  <option <%= @barber == 'Jessie Pinkman' ? 'selected' : '' %>>Jessie Pinkman</option>
-  <option <%= @barber == 'Gus Fring' ? 'selected' : '' %>>Gus Fring</option>
+  <% @results.each do |row| %>
+  <option <%= @barber == row['name'] ? 'selected' : '' %>><%= row['name']%></option>
+  <% end %>  
 </select>
+
 <div class="mb-3">
     <label>Дата и время</label>
     <input id="datetimepicker" name="datetime" type="text" class="form-control ccc" placeholder="Выберите дату и время" value="<%= @datetime %>">
