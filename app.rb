@@ -61,12 +61,13 @@ get '/contacts' do
 	erb :contacts
 end
 
-get '/visit' do
-
+before do
 	#sqlite3 db read
  	db = get_db
+	@barbers = db.execute 'select * from Barbers'
+end
 
-	@results = db.execute 'select * from Barbers'
+get '/visit' do
 
 	erb :visit
 end

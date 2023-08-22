@@ -14,7 +14,7 @@
 
 <select name="barber" type="text" class="form-select" aria-label="Default select example">
   <option selected>Выберите парикмахера</option>
-  <% @results.each do |row| %>
+  <% @barbers.each do |row| %>
   <option <%= @barber == row['name'] ? 'selected' : '' %>><%= row['name']%></option>
   <% end %>  
 </select>
