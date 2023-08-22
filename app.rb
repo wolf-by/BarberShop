@@ -104,6 +104,8 @@ post '/visit' do
  		) 
  		values ( ?, ?, ?, ?, ?)', [@username, @phone, @datetime, @barber, @color]
 
+ 	erb "<h3>Спасибо, вы записались!</h3>"	
+
 	f = File.open './public/users.txt', 'a'
 	f.write "Клиент: #{@username},
 			 Телефон: #{@phone},
@@ -113,7 +115,7 @@ post '/visit' do
 	f.close
 
 	erb :visit
-end
+end	
 
 post '/contacts' do
 	@email = params[:email]
